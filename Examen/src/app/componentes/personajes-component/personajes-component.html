@@ -1,77 +1,41 @@
 <div class="container-fluid py-5 personajes-container">
     <div class="row mb-5">
         <div class="col-12">
-            <h1 class="personajes-title text-center">Guerreros Dragon Ball</h1>
+            <h1 class="personajes-title text-center mb-4">Guerreros Dragon Ball</h1>
         </div>
     </div>
 
-    <div class="row g-4">
-        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-            <div class="card personaje-card h-100">
-                <!-- Imagen del Personaje -->
+    <div *ngIf="isLoading" class="text-center">
+        <div class="spinner-border text-warning" role="status">
+            <span class="visually-hidden">Cargando...</span>
+        </div>
+    </div>
+
+    <div class="row g-4" *ngIf="!isLoading">
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3" *ngFor="let personaje of personajes">
+            <div class="card personaje-card h-100 shadow-sm">
                 <div class="personaje-image-container">
-                    <img src="lol.jpg" alt="detalle imagen" class="card-img-top personaje-image">
-                    <div class="personaje-overlay">
-                        <button class="btn btn-primary btn-sm">
-                            Ver Detalles
-                        </button>
-                    </div>
+                    <img [src]="personaje.image" [alt]="personaje.name" class="card-img-top personaje-image">
                 </div>
 
-                <!-- Cuerpo de la Tarjeta -->
                 <div class="card-body d-flex flex-column">
-                    <h5 class="card-title personaje-name">Nombre del personaje</h5>
-
+                    <h5 class="card-title personaje-name text-center mb-3">{{personaje.name}}</h5>
+                    
                     <div class="personaje-info mb-3">
-                        <div class="info-item">
-                            <span class="info-label">Raza:</span>
-                            <span class="info-value">Raza del personaje</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Género:</span>
-                            <span class="info-value">Genero del personaje</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Afiliación:</span>
-                            <span class="info-value">affiliation del personaje</span>
-                        </div>
+                        <p class="info-item mb-2">
+                            <strong>Raza:</strong> <span class="text-muted">{{personaje.race}}</span>
+                        </p>
+                        <p class="info-item mb-2">
+                            <strong>Afiliación:</strong> <span class="text-muted">{{personaje.affiliation}}</span>
+                        </p>
+                        <p class="info-item mb-2">
+                            <strong>Ki:</strong> <span class="badge bg-warning text-dark">{{personaje.ki}}</span>
+                        </p>
                     </div>
 
-                    <!-- Ki Information -->
-                    <div class="ki-info mb-3">
-                        <div class="ki-item">
-                            <span class="ki-label">Ki:</span>
-                            <span class="ki-value">ki del personaje</span>
-                        </div>
-                        <div class="ki-item">
-                            <span class="ki-label">Max Ki:</span>
-                            <span class="ki-value">max Ki del personaje</span>
-                        </div>
-                    </div>
-
-                    <!-- Descripción -->
-                    <p class="card-text personaje-description">personaje descripcion</p>
-
-                    <!-- Planeta de Origen -->
-                    <div class="origin-planet mb-3">
-                        <h6 class="origin-title">Planeta de Origen</h6>
-                        <div class="origin-info">
-                            <span class="origin-name">Planeta del eprsonaje</span>
-                        </div>
-                    </div>
-
-                    <!-- Transformaciones -->
-                    <div class="transformations mt-auto">
-                        <h6 class="transformations-title">Transformaciones</h6>
-                        <div class="transformations-list">
-                            <!-- aqui iran varias -->
-                            <div class="transformation-badge">
-                                <img src="trans.jpg" alt="trans.name" class="trans-img">
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <button class="btn btn-primary">Ver Detalles</button>
+                    <a [routerLink]="['/personajes', personaje.id]" class="btn btn-primary mt-auto">
+                        Ver Detalles
+                    </a>
                 </div>
             </div>
         </div>

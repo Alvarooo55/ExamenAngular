@@ -1,105 +1,111 @@
-<div class="detalles-container">
-    <div class="card detalles-card">
-        <div class="card-body">
-            <div class="row g-4">
-                <!-- Imagen del Personaje (Lado Izquierdo) -->
-                <div class="col-12 col-md-4 d-flex align-items-stretch">
-                    <div class="imagen-wrapper">
-                        <img src="image.jpg" alt="nombre del pesonaje" class="personaje-imagen">
-                        <div class="imagen-overlay">
-                            <h2 class="nombre-grande">nombre del pesonaje</h2>
-                        </div>
-                    </div>
-                </div>
+<div class="container py-5 detalles-page">
+    <div *ngIf="isLoading" class="text-center">
+        <div class="spinner-border text-warning" role="status">
+            <span class="visually-hidden">Cargando...</span>
+        </div>
+    </div>
 
-                <!-- Contenido Principal (Lado Derecho) -->
-                <div class="col-12 col-md-8">
-                    <!-- Encabezado -->
-                    <div class="detalles-header mb-4">
-                        <h1 class="detalles-titulo">nombre del pesonaje</h1>
-                        <p class="detalles-subtitulo">afiliacion del personaje • Raza del personaje</p>
-                    </div>
-
-                    <!-- Información Básica en Grid -->
-                    <div class="info-grid mb-4">
-                        <div class="info-box">
-                            <span class="info-label">Raza</span>
-                            <span class="info-dato">Raza del personaje</span>
-                        </div>
-                        <div class="info-box">
-                            <span class="info-label">Género</span>
-                            <span class="info-dato">genero del personaje</span>
-                        </div>
-                        <div class="info-box">
-                            <span class="info-label">Afiliación</span>
-                            <span class="info-dato">afiliacion del personaje</span>
-                        </div>
-                        <div class="info-box">
-                            <span class="info-label">Ki</span>
-                            <span class="info-dato">ki del personaje</span>
-                        </div>
-                    </div>
-
-                    <!-- Ki Bars -->
-                    <div class="ki-section mb-4">
-                        <div class="ki-bar-container">
-                            <div class="ki-bar-label">
-                                <span>Ki Actual</span>
-                                <span class="ki-value">ki del personaje</span>
-                            </div>
-                            <div class="progress ki-progress">
-                                <div class="progress-bar ki-bar" role="progressbar" style="width: 65%"></div>
-                            </div>
-                        </div>
-
-                        <div class="ki-bar-container">
-                            <div class="ki-bar-label">
-                                <span>Ki Máximo</span>
-                                <span class="ki-value">max ki del personaje</span>
-                            </div>
-                            <div class="progress ki-progress">
-                                <div class="progress-bar ki-bar-max" role="progressbar" style="width: 100%"></div>
+    <div *ngIf="!isLoading && personaje" class="detalles-container">
+        <div class="card detalles-card shadow">
+            <div class="card-body">
+                <div class="row g-4">
+                    <div class="col-12 col-md-4 d-flex align-items-stretch">
+                        <div class="imagen-wrapper">
+                            <img [src]="personaje.image" [alt]="personaje.name" class="personaje-imagen img-fluid">
+                            <div class="imagen-overlay">
+                                <h2 class="nombre-grande">{{personaje.name}}</h2>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Descripción -->
-                    <div class="descripcion-section mb-4">
-                        <h5 class="seccion-titulo">Descripción</h5>
-                        <p class="descripcion-texto">personaje descripcion</p>
-                    </div>
+                    <div class="col-12 col-md-8">
+                        <div class="detalles-header mb-4">
+                            <h1 class="detalles-titulo">{{personaje.name}}</h1>
+                            <p class="detalles-subtitulo">{{personaje.affiliation}} • {{personaje.race}}</p>
+                        </div>
 
-                    <!-- Planeta de Origen -->
-                    <div class="planeta-section mb-4">
-                        <h5 class="seccion-titulo">Planeta de Origen</h5>
-                        <div class="planeta-card">
-                            <div class="planeta-info">
-                                <h6 class="planeta-nombre">nombre del planeta del personaje</h6>
-                                <p class="planeta-descripcion">descripcion del planeta del personaje</p>
-                                
+                        <div class="row mb-4">
+                            <div class="col-6 col-md-3 mb-3">
+                                <div class="info-box p-3 border rounded">
+                                    <span class="info-label d-block text-muted small">Raza</span>
+                                    <span class="info-dato d-block fw-bold">{{personaje.race}}</span>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3 mb-3">
+                                <div class="info-box p-3 border rounded">
+                                    <span class="info-label d-block text-muted small">Género</span>
+                                    <span class="info-dato d-block fw-bold">{{personaje.gender}}</span>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3 mb-3">
+                                <div class="info-box p-3 border rounded">
+                                    <span class="info-label d-block text-muted small">Afiliación</span>
+                                    <span class="info-dato d-block fw-bold">{{personaje.affiliation}}</span>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3 mb-3">
+                                <div class="info-box p-3 border rounded">
+                                    <span class="info-label d-block text-muted small">Ki</span>
+                                    <span class="info-dato d-block fw-bold">{{personaje.ki}}</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Transformaciones -->
-                    <div class="transformaciones-section">
-                        <h5 class="seccion-titulo">Transformaciones</h5>
-                        <div class="transformaciones-grid">
-                            <div class="transformacion-item">
-                                <!-- aqui van varias transformaciones -->
-                                <div class="transformacion-card">
-                                    <img src="transformacion.jpg" alt="transformacion.name"
-                                        class="transformacion-imagen">
-                                    <div class="transformacion-info">
-                                        <p class="transformacion-nombre">transformacion.name</p>
-                                        <p class="transformacion-ki">transformacion.ki</p>
+                        <div class="ki-section mb-4">
+                            <div class="ki-bar-container mb-3">
+                                <div class="ki-bar-label d-flex justify-content-between mb-2">
+                                    <span>Ki Actual</span>
+                                    <span class="ki-value fw-bold">{{personaje.ki}}</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 65%"></div>
+                                </div>
+                            </div>
+
+                            <div class="ki-bar-container mb-3">
+                                <div class="ki-bar-label d-flex justify-content-between mb-2">
+                                    <span>Ki Máximo</span>
+                                    <span class="ki-value fw-bold">{{personaje.maxKi}}</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="descripcion-section mb-4">
+                            <h5 class="seccion-titulo fw-bold">Descripción</h5>
+                            <p class="descripcion-texto">{{personaje.description}}</p>
+                        </div>
+
+                        <div class="transformaciones-section" *ngIf="personaje.transformations && personaje.transformations.length > 0">
+                            <h5 class="seccion-titulo fw-bold mb-3">Transformaciones</h5>
+                            <div class="row g-3">
+                                <div class="col-6 col-md-4 col-lg-3" *ngFor="let transformacion of personaje.transformations">
+                                    <div class="card transformacion-card h-100 shadow-sm">
+                                        <img [src]="transformacion.image" [alt]="transformacion.name" class="card-img-top transformacion-imagen">
+                                        <div class="card-body p-2">
+                                            <p class="card-title small mb-1 fw-bold">{{transformacion.name}}</p>
+                                            <p class="card-text small text-muted mb-0">Ki: {{transformacion.ki}}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <a routerLink="/personajes" class="btn btn-secondary">
+                                ← Volver a Personajes
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div *ngIf="!isLoading && !personaje" class="alert alert-warning text-center">
+        <h4>Personaje no encontrado</h4>
+        <a routerLink="/personajes" class="btn btn-primary mt-3">Volver a Personajes</a>
     </div>
 </div>

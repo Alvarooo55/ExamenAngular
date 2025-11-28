@@ -41,17 +41,20 @@
     overflow: hidden;
     height: 300px;
     background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .personaje-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
 .personaje-card:hover .personaje-image {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 /* Overlay en la Imagen */
@@ -93,6 +96,29 @@
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+/* Información del Personaje */
+.personaje-info {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 3px solid #ff6b00;
+}
+
+.info-item {
+    font-size: 0.9rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.info-item strong {
+    color: #ff6b00;
+    margin-right: 0.5rem;
+}
+
+.info-item .text-muted {
+    color: #d0d0d0 !important;
 }
 
 /* Información General */

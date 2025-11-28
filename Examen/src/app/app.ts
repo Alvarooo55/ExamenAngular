@@ -1,12 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HomeComponents } from "./componentes/home-components/home-components";
-import { PersonajesComponent } from './componentes/personajes-component/personajes-component';
-import { PersonajeDetallesComponent } from './componentes/personaje-detalles-component/personaje-detalles-component';
+import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { FooterComponent } from './componentes/footer/footer.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HomeComponents, PersonajesComponent, PersonajeDetallesComponent],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

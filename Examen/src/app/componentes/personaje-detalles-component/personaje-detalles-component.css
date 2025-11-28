@@ -1,4 +1,4 @@
-/* Contenedor Principal */
+
 .detalles-container {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     min-height: 100vh;
@@ -8,7 +8,6 @@
     justify-content: center;
 }
 
-/* Tarjeta de Detalles Horizontal */
 .detalles-card {
     background-color: #0f3460;
     border: 3px solid #ff6b00;
@@ -25,7 +24,7 @@
     border-color: #ff9500;
 }
 
-/* Imagen Wrapper */
+
 .imagen-wrapper {
     position: relative;
     overflow: hidden;
@@ -47,7 +46,7 @@
     transform: scale(1.05);
 }
 
-/* Overlay en Imagen */
+
 .imagen-overlay {
     position: absolute;
     bottom: 0;
@@ -68,7 +67,7 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-/* Encabezado */
+
 .detalles-header {
     border-bottom: 2px solid #ff6b00;
     padding-bottom: 1.5rem;
@@ -89,7 +88,7 @@
     margin: 0;
 }
 
-/* Grid de Información Básica */
+
 .info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -127,7 +126,7 @@
     font-weight: bold;
 }
 
-/* Sección Ki */
+
 .ki-section {
     background-color: rgba(100, 200, 255, 0.15);
     border-left: 4px solid #64c8ff;
@@ -173,7 +172,6 @@
     background: linear-gradient(90deg, #64ff96 0%, #32c764 100%);
 }
 
-/* Sección Descripción */
 .descripcion-section {
     background-color: rgba(200, 200, 200, 0.1);
     padding: 1.5rem;
@@ -197,7 +195,7 @@
     text-align: justify;
 }
 
-/* Sección Planeta */
+
 .planeta-section {
     background-color: rgba(100, 255, 150, 0.1);
     padding: 1.5rem;
@@ -278,7 +276,6 @@
     border-radius: 10px;
     overflow: hidden;
     transition: all 0.3s ease;
-    cursor: pointer;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -291,7 +288,7 @@
 .transformacion-card:hover {
     background-color: rgba(255, 200, 100, 0.25);
     border-color: #ffdd8a;
-    transform: translateY(-8px);
+    transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(255, 200, 100, 0.3);
 }
 
