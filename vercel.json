@@ -1,6 +1,6 @@
 {
   "buildCommand": "cd Examen && npm install && npm run build",
-  "outputDirectory": "Examen/dist/examen/browser",
+  "outputDirectory": "Examen/dist/Examen/browser",
   "framework": null,
-  "installCommand": "npm install"
+  "installCommand": "cd Examen && npm install"
 }
